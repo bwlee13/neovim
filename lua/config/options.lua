@@ -5,4 +5,4 @@
 vim.opt.winbar = "%=%m %f"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.formatoptions:remove("o")
-vim.opt.scrolloff = 999
+vim.opt.scrolloff = 10

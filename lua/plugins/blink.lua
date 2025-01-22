@@ -19,18 +19,23 @@ return {
       },
 
       -- this should remove suggestions on comments
-      sources = {
-        default = function()
-          local node = vim.treesitter.get_node()
-          if
-            node and vim.tbl_contains({ "comment", "line_comment", "comment_content", "block_comment" }, node:type())
-          then
-            return { "buffer" }
-          else
-            return { "lsp", "path", "snippets", "buffer" }
-          end
-        end,
-      },
+      -- but it doesn't freaking work
+
+      -- sources = {
+      --   default = function()
+      --     local node = vim.treesitter.get_node()
+      --     if
+      --       node and vim.tbl_contains({ "comment", "line_comment", "comment_content", "block_comment" }, node:type())
+      --     then
+      --       print("In here")
+      --       return { "buffer" }
+      --     else
+      --       print("Not In here")
+      --       return { "lsp", "path", "snippets", "buffer" }
+      --     end
+      --   end,
+      -- },
+
       signature = {
         enabled = false,
       },
@@ -39,7 +44,7 @@ return {
         ghost_text = { enabled = false },
         list = {
           selection = {
-            preselect = false,
+            preselect = true,
             auto_insert = false,
           },
         },
