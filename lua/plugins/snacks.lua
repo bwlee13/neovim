@@ -23,10 +23,10 @@ return {
           { section = "startup" },
           {
             section = "terminal",
-            cmd = "ascii-image-converter ~/.config/assets/GeistLogo.png -C -c -d 60,25",
+            cmd = "ascii-image-converter ~/.config/assets/ByteBanditLogo.png -C -c -H 30",
             random = 10,
             pane = 2,
-            indent = 4,
+            indent = 0,
             height = 30,
           },
         },

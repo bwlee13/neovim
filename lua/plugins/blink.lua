@@ -18,6 +18,17 @@ return {
         ["<CR>"] = { "accept", "fallback" },
       },
 
+      sources = {
+        default = { "lazydev" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
+
       -- this should remove suggestions on comments
       -- but it doesn't freaking work
 
@@ -35,10 +46,6 @@ return {
       --     end
       --   end,
       -- },
-
-      signature = {
-        enabled = false,
-      },
 
       completion = {
         ghost_text = { enabled = false },
