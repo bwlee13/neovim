@@ -36,9 +36,6 @@ return {
             },
           },
         },
-        -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-        -- Be aware that you also will need to properly configure your LSP server to
-        -- provide the inlay hints.
         inlay_hints = {
           enabled = false,
         },
@@ -99,6 +96,26 @@ return {
             end,
             capabilities = {
               offsetEncoding = { "utf-16" },
+            },
+            cmd = {
+              "clangd",
+              "--background-index",
+              "--clang-tidy",
+              "--header-insertion=iwyu",
+              "--fallback-style=llvm",
+            },
+            init_options = {
+              completeUnimported = true,
+              clangdFileStatus = true,
+            },
+            setup = {
+              clangd = function(_, opts)
+                local clangd_ext_opts = LazyVim.opts("clangd_extensions.nvim")
+                require("clangd_extensions").setup(
+                  vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts })
+                )
+                return false
+              end,
             },
           },
           neocmake = {},

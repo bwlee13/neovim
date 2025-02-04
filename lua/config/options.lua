@@ -6,3 +6,5 @@ vim.opt.winbar = "%=%m %f"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.formatoptions:remove("o")
 vim.opt.scrolloff = 10
+-- This forces plugins like neo-tree and snacks.terminal to always open at project level
+vim.g.root_spec = { "cwd" }

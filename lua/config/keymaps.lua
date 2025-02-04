@@ -2,6 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- naughty naught - but C-c by default doesn't work with lsp!!
+vim.keymap.set({ "n", "v" }, "<C-c>", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<C-[>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<C-]>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "shift move line up" })
