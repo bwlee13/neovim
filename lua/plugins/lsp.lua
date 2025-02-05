@@ -18,6 +18,7 @@ return {
     },
     opts = function()
       local ret = {
+        ---@type vim.diagnostic.Opts
         diagnostics = {
           underline = true,
           update_in_insert = false,
